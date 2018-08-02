@@ -1,5 +1,8 @@
+import {Injectable} from '@angular/core';
+
 export class User {
- username : string;
- password : string;
- isAdmin : boolean;
+	constructor(
+		public username : string,
+		public password : string,
+		public isAdmin : boolean){}
 }
