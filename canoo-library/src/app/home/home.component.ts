@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../user';
 @Component({
   selector: 'app-home',
@@ -7,15 +8,18 @@ import { User } from '../user';
 })
 export class HomeComponent {
 
-	constructor(
+	constructor( private router: Router
 	) { }
 	
 	ngOnInit(){
+		if (localStorage.getItem("user") === null){
+			this.logout();
+		}
 	}
 
 	logout() {
 		localStorage.removeItem("user");
-		//this.router.navigate(['Login']);
+		this.router.navigateByUrl('/login');
 	}
 
 }

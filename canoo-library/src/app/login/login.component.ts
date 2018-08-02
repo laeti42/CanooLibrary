@@ -1,4 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../user';
 @Component({
   selector: 'app-login',
@@ -18,12 +19,13 @@ export class LoginComponent implements OnInit {
 	];
 	
 	errorMessage : string ='';
-	constructor() { }
+	constructor(private router: Router) { }
 	login() {
 		var myUser = this.users.find(u => u.username === this.user.username);
 		if (myUser && myUser.password === this.user.password){
 			this.errorMessage='ok';
 			localStorage.setItem('user', JSON.stringify(myUser));
+			this.router.navigateByUrl('/home');
 		}else{
 			this.errorMessage='nok'
 		}
