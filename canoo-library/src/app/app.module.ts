@@ -28,6 +28,7 @@ import {MatIconModule} from '@angular/material/icon';
 	MatButtonModule,
 	MatGridListModule,
 	MatIconModule
+	
 	],
   providers: [],
   bootstrap: [AppComponent]

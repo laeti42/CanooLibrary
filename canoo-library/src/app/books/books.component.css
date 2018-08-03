@@ -19,3 +19,11 @@
 	text-align:left;
 	padding:5px;
 }
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}

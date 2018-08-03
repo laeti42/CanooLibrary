@@ -3,14 +3,17 @@
 <button mat-icon-button (click)="goNextPage()"[hidden]="!hadNext()">></button>
 
 <div *ngFor="let book of books; let i = index" >
-<div *ngIf="isOk(i)">
+<!--display mode -->
+<div *ngIf="isOk(i)" [hidden]="book.editingMode">
 	<mat-grid-list cols="5" >
 		<mat-grid-tile colspan=1 rowspan=1>
 			<img class="cover" src="{{book.imageUrl}}" alt="{{book.title}}">    
 		</mat-grid-tile>
-		<mat-grid-tile colspan=1 rowspan=1>
-			<p class="bookInfo"><span class="title">{{book.title}}</span>
-			<br/>written by {{book.author}}, {{book.date | date}}</p>
+		<mat-grid-tile colspan=1 rowspan=1 >
+			<p class="bookInfo">
+				<span class="title">{{book.title}}</span>
+				<br/>by {{book.author}}, <br/> {{book.date | date}}
+			</p>
 		</mat-grid-tile>
 		<mat-grid-tile colspan=2 rowspan=1 >
 		<span [hidden]="book.summary.length===0" class="summary" [style.overflow]="'auto'" [style.height.px]="'200'">
@@ -21,13 +24,44 @@
 		</span>
 		</mat-grid-tile>
 		<mat-grid-tile colspan=1 rowspan=1>
-		<button mat-button>modify</button>
+		<button mat-button (click)="book.editingMode=true">modify</button>
+		<button mat-button>delete</button>
+		</mat-grid-tile>
+	</mat-grid-list>
+<span><br/></span>
+</div>
+
+<!--editing mode-->
+<div *ngIf="isOk(i)" [hidden]="!book.editingMode">
+	<mat-grid-list cols="5">
+
+		<mat-grid-tile colspan=1 rowspan=1>
+			<img class="cover" src="{{book.imageUrl}}" alt="{{book.title}}">    
+		</mat-grid-tile>
+		<mat-grid-tile colspan=1 rowspan=1 >
+			<p class="bookInfo">
+				<input type="text" class="form-control" id="title" [(ngModel)]="book.title" name="title" placeholder="title">
+				<br/>by 
+				<input type="text" class="form-control" id="author" [(ngModel)]="book.author" name="author" placeholder="author">, 
+				<input type="date" class="form-control" id="author" [(ngModel)]="book.date" name="date" placeholder="date">
+			</p>
+		</mat-grid-tile>
+		<mat-grid-tile colspan=2 rowspan=1 >
+			<textarea  rows="6" class="form-control" id="summary" [(ngModel)]="book.summary" name="summary" placeholder="summary"></textarea>
+		</mat-grid-tile>
+		<mat-grid-tile colspan=1 rowspan=1>
+		<button mat-button (click)="book.editingMode=false">Stop Modify</button>
 		<button mat-button>delete</button>
 		</mat-grid-tile>
 
 	</mat-grid-list>
 <span><br/></span>
 </div>
+
+
+
+
+
 </div>
 <button mat-icon-button (click)="goPrevPage()" [hidden]="!hadPrev()" ><</button> 
 <button mat-icon-button (click)="goNextPage()"[hidden]="!hadNext()">></button>
