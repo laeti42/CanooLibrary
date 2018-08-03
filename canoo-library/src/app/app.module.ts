@@ -6,19 +6,29 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
+import { BooksComponent } from './books/books.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    BooksComponent
   ],
   imports: [
     BrowserModule,
 	FormsModule,
-	AppRoutingModule
-  ],
+	AppRoutingModule,
+	BrowserAnimationsModule,
+	MatButtonModule,
+	MatGridListModule,
+	MatIconModule
+	],
   providers: [],
   bootstrap: [AppComponent]
 })

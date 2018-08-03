@@ -1,0 +1,21 @@
+.example-card {
+  max-width: 800px;
+}
+
+.imgAvatar {
+	height:100px;
+	text-align : left;
+}
+.cover {
+	height:200px;
+}
+.summary{
+	text-align: justify;
+}
+.title{
+	color:red;
+}
+.bookInfo{
+	text-align:left;
+	padding:5px;
+}

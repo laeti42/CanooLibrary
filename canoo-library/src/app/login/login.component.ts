@@ -23,11 +23,11 @@ export class LoginComponent implements OnInit {
 	login() {
 		var myUser = this.users.find(u => u.username === this.user.username);
 		if (myUser && myUser.password === this.user.password){
-			this.errorMessage='ok';
+			this.errorMessage='';
 			localStorage.setItem('user', JSON.stringify(myUser));
 			this.router.navigateByUrl('/home');
 		}else{
-			this.errorMessage='nok'
+			this.errorMessage='Wrong username or password'
 		}
     }
 
