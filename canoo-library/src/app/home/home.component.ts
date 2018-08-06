@@ -8,15 +8,11 @@ import { User } from '../user';
 })
 export class HomeComponent {
 
-	constructor( private router: Router
-	) { }
-	
-	ngOnInit(){
+	constructor( private router: Router) { 
 		if (localStorage.getItem("user") === null){
-			this.logout();
+			this.router.navigateByUrl('/login');
 		}
 	}
-
 	logout() {
 		localStorage.removeItem("user");
 		this.router.navigateByUrl('/login');

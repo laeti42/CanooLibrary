@@ -25,7 +25,7 @@
 		</mat-grid-tile>
 		<mat-grid-tile colspan=1 rowspan=1>
 		<button mat-button (click)="book.editingMode=true">modify</button>
-		<button mat-button>delete</button>
+		<button mat-button (click)="deleteElement()" [hidden]="!isAdmin">Delete</button>
 		</mat-grid-tile>
 	</mat-grid-list>
 <span><br/></span>
@@ -51,16 +51,12 @@
 		</mat-grid-tile>
 		<mat-grid-tile colspan=1 rowspan=1>
 		<button mat-button (click)="book.editingMode=false">Stop Modify</button>
-		<button mat-button>delete</button>
+		<button mat-button (click)="deleteElement()" [hidden]="!isAdmin">Delete</button>
 		</mat-grid-tile>
 
 	</mat-grid-list>
 <span><br/></span>
 </div>
-
-
-
-
 
 </div>
 <button mat-icon-button (click)="goPrevPage()" [hidden]="!hadPrev()" ><</button> 

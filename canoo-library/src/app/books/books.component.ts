@@ -22,13 +22,12 @@ export class BooksComponent implements OnInit {
 		{title:'Full Stack AngularJS for Java Developers: Build a Full-Featured Web Application from Scratch Using AngularJS with Spring RESTful', editingMode:false, author:'Ravi Kant Soni', date: 1478496544151, summary:'', imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/41AYQnOFctL._AC_US327_QL65_.jpg'},
 		{title:'Angular 5 Projects: Learn to Build Single Page Web Applications Using 70+ Projects', editingMode:false, author:'Mark Clow', date: 1478496544151, summary:'', imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/41wwgX3DWrL._AC_US327_QL65_.jpg'}
 	];
-	
-
-	nbrProPage=4;
-	page =this.nbrProPage;
-	nbrBooks=this.books.length;
-	nbrTotPage=0;
-	nbrPageCurrent=1;
+	isAdmin=false;
+	int nbrProPage=4;
+	int page = this.nbrProPage;
+	int nbrBooks=this.books.length;
+	int nbrTotPage=0;
+	int nbrPageCurrent=1;
 	isOk(i){
 		return(i>=(this.page-this.nbrProPage) && i<this.page);
 	}
@@ -58,13 +57,20 @@ export class BooksComponent implements OnInit {
 	hadNext(){
 		return this.page<this.nbrBooks-1;
 	}
-
+	
+	deleteElement(index){
+		if (index !== -1) {
+			this.books.splice(index, 1);
+		}
+	}
+	
   constructor() { 
 	if(this.nbrBooks%this.nbrProPage===0){
 		this.nbrTotPage=this.nbrBooks/this.nbrProPage;
 	}else{
 		this.nbrTotPage=parseInt(this.nbrBooks/this.nbrProPage)+1;
 	}
+	this.isAdmin = JSON.parse(localStorage.getItem('user')).isAdmin;
 	
   }
 
