@@ -1,0 +1,42 @@
+<div class="mat-app-background basic-container addBook">
+<form class="example-form">
+	<mat-form-field class="example-full-width">
+		<input matInput placeholder="Image URL"  [(ngModel)]="book.imageUrl" name="imageUrl">
+	</mat-form-field>
+	<mat-form-field class="example-full-width">
+		<input matInput placeholder="Title"  [(ngModel)]="book.title" name="title" required>
+		<mat-error [hidden]="book.title">{{ErrorMessage}}</mat-error>
+	</mat-form-field>
+	<mat-form-field class="example-full-width">
+		<input matInput placeholder="Author"  [(ngModel)]="book.author" name="author" required>
+		<mat-error [hidden]="book.author">{{ErrorMessage}}</mat-error>
+	</mat-form-field>
+	<mat-form-field class="example-full-width">
+		<input matInput placeholder="date" type="date"  [(ngModel)]="book.date" name="date">
+	</mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Summary" [(ngModel)]="book.summary" name="summary" ></textarea>
+  </mat-form-field>
+
+<button mat-stroked-button color="warn" class="btn">Cancel</button>
+<button mat-stroked-button color="primary">Save</button>
+</form>
+</div>
+
+
+<!--
+<div>
+	<img class="cover" src="{{book.imageUrl}}" alt="{{book.title}}">   - -> 
+	<p>
+		<input type="text" class="form-control" id="title" [(ngModel)]="book.title" name="title" placeholder="title">
+		<br/>
+		<input type="text" class="form-control" id="author" [(ngModel)]="book.author" name="author" placeholder="author">
+		<br/>
+		<input type="date" class="form-control" id="author" [(ngModel)]="book.date" name="date" placeholder="date">
+	</p>
+
+	<textarea  rows="6" class="form-control" id="summary" [(ngModel)]="book.summary" name="summary" placeholder="summary"></textarea>
+<!--<button mat-button (click)="book.editingMode=false">Stop Modify</button>
+<button mat-button (click)="deleteElement()" [hidden]="!isAdmin">Delete</button>
+</div>-->

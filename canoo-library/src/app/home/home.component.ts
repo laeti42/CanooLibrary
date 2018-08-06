@@ -17,5 +17,7 @@ export class HomeComponent {
 		localStorage.removeItem("user");
 		this.router.navigateByUrl('/login');
 	}
-
+	addBook(){
+		
+	}
 }
