@@ -99,14 +99,20 @@ export class BooksComponent{
 	deleteElement(index){
 		if (index !== -1) {
 			this.books.splice(index, 1);
+			this.nbrBooks--;
+			
 		}
+		
+		
+		
+		
 	}
 
 	/*Use for adding or not a new book*/
 	Save(){
-		this.nbrBooks++;
-		this.calculateNbrPage();
 		if(this.book.title && this.book.author){
+			this.nbrBooks++;
+			this.calculateNbrPage();
 			this.isAddingAbook=false;
 			this.books.push(this.book);
 			this.book = {title:'', editingMode:false, dateAdd:0, author:'', date: 0, summary:'', imageUrl: ''};

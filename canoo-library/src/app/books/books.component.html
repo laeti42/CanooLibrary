@@ -1,21 +1,21 @@
 <div class="mat-app-background basic-container addBook" [hidden]="!isAddingAbook">
-<form class="example-form">
-	<mat-form-field class="example-full-width">
+<form class="form-addBook">
+	<mat-form-field class="full-width">
 		<input matInput placeholder="Image URL"  [(ngModel)]="book.imageUrl" name="imageUrl">
 	</mat-form-field>
-	<mat-form-field class="example-full-width">
+	<mat-form-field class="full-width">
 		<input matInput placeholder="Title"  [(ngModel)]="book.title" name="title" required>
 		<mat-error [hidden]="book.title">{{ErrorMessage}}</mat-error>
 	</mat-form-field>
-	<mat-form-field class="example-full-width">
+	<mat-form-field class="full-width">
 		<input matInput placeholder="Author"  [(ngModel)]="book.author" name="author" required>
 		<mat-error [hidden]="book.author">{{ErrorMessage}}</mat-error>
 	</mat-form-field>
-	<mat-form-field class="example-full-width">
+	<mat-form-field class="full-width">
 		<input matInput placeholder="date" type="date"  [(ngModel)]="book.date" name="date">
 	</mat-form-field>
 
-  <mat-form-field class="example-full-width">
+  <mat-form-field class="full-width">
     <textarea matInput placeholder="Summary" [(ngModel)]="book.summary" name="summary" ></textarea>
   </mat-form-field>
 
@@ -27,7 +27,7 @@
 <div [hidden]="isAddingAbook">
 	<button mat-stroked-button (click)="isAddingAbook=!isAddingAbook" style="float:left;">Add a new book</button>
 	<div style="text-align:right;">
-	<mat-form-field class="selectSort" >
+	<mat-form-field style="margin:10px;" >
 		<mat-select placeholder="Sort by">
 			<mat-option *ngFor="let cat of categories" [value]="cat.value">
 				{{cat.viewValue}}
@@ -41,9 +41,9 @@
 	
 </div>
 <div [hidden]="isAddingAbook">
-	<button mat-icon-button (click)="goPrevPage()" [hidden]="!hadPrev()" ><</button> 
+	<button mat-icon-button (click)="goPrevPage()" [hidden]="!hadPrev()" ><mat-icon>keyboard_arrow_left</mat-icon></button> 
 	{{nbrPageCurrent}}/{{nbrTotPage}}
-	<button mat-icon-button (click)="goNextPage()"[hidden]="!hadNext()">></button>
+	<button mat-icon-button (click)="goNextPage()"[hidden]="!hadNext()"><mat-icon>keyboard_arrow_right</mat-icon></button>
 
 	<div *ngFor="let book of books; let i = index" >
 	<!--display mode -->
@@ -67,7 +67,7 @@
 			</span>
 			</mat-grid-tile>
 			<mat-grid-tile colspan=1 rowspan=1>
-			<button mat-button (click)="book.editingMode=true">modify</button>
+			<button mat-button (click)="book.editingMode=true">Modify</button>
 			<button mat-button (click)="deleteElement()" [hidden]="!isAdmin">Delete</button>
 			</mat-grid-tile>
 		</mat-grid-list>
@@ -79,19 +79,27 @@
 		<mat-grid-list cols="5">
 
 			<mat-grid-tile colspan=1 rowspan=1>
-				<input type="text" class="form-control" [(ngModel)]="book.imageUrl"  placeholder="imageUrl">   
+				<mat-form-field class="full-width">
+					<input matInput placeholder="Image URL"  [(ngModel)]="book.imageUrl" name="imageUrl">
+				</mat-form-field> 
 			</mat-grid-tile>
 			<mat-grid-tile colspan=1 rowspan=1 >
 				<p class="bookInfo">
-					<input type="text" class="form-control" id="title" [(ngModel)]="book.title" name="title" placeholder="title">
-					<br/> 
-					<input type="text" class="form-control" id="author" [(ngModel)]="book.author" name="author" placeholder="author">
-					<br/>
-					<input type="date" class="form-control" id="author" [(ngModel)]="book.date" name="date" placeholder="date">
+					<mat-form-field class="full-width">
+						<input matInput type="text"  [(ngModel)]="book.title" placeholder="Title">
+					</mat-form-field>
+					<mat-form-field class="full-width">
+						<input matInput type="text"  [(ngModel)]="book.author" placeholder="Author">
+					</mat-form-field>
+					<mat-form-field class="full-width">
+						<input matInput type="date"   [(ngModel)]="book.date" placeholder="Date">
+					</mat-form-field>
 				</p>
 			</mat-grid-tile>
 			<mat-grid-tile colspan=2 rowspan=1 >
-				<textarea  rows="6" class="form-control" id="summary" [(ngModel)]="book.summary" name="summary" placeholder="summary"></textarea>
+				<mat-form-field class="full-width">
+					<textarea matInput rows="8" placeholder="Summary" [(ngModel)]="book.summary" name="summary" ></textarea>
+				</mat-form-field>
 			</mat-grid-tile>
 			<mat-grid-tile colspan=1 rowspan=1>
 			<button mat-button (click)="book.editingMode=false">Stop Modify</button>
@@ -103,7 +111,7 @@
 	</div>
 
 	</div>
-	<button mat-icon-button (click)="goPrevPage()" [hidden]="!hadPrev()" ><</button> 
+	<button mat-icon-button (click)="goPrevPage()" [hidden]="!hadPrev()" ><mat-icon>keyboard_arrow_left</mat-icon></button> 
 	{{nbrPageCurrent}}/{{nbrTotPage}}
-	<button mat-icon-button (click)="goNextPage()"[hidden]="!hadNext()">></button>
+	<button mat-icon-button (click)="goNextPage()"[hidden]="!hadNext()"><mat-icon>keyboard_arrow_right</mat-icon></button>
 </div>
