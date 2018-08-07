@@ -42,7 +42,7 @@
 </div>
 <div [hidden]="isAddingAbook">
 	<button mat-icon-button (click)="goPrevPage()" [hidden]="!hadPrev()" ><mat-icon>keyboard_arrow_left</mat-icon></button> 
-	{{nbrPageCurrent}}/{{nbrTotPage}}
+	{{nbrPageCurrent}}/{{nbrTotPage | number: '1.0-0'}}
 	<button mat-icon-button (click)="goNextPage()"[hidden]="!hadNext()"><mat-icon>keyboard_arrow_right</mat-icon></button>
 
 	<div *ngFor="let book of books; let i = index" >
@@ -112,6 +112,6 @@
 
 	</div>
 	<button mat-icon-button (click)="goPrevPage()" [hidden]="!hadPrev()" ><mat-icon>keyboard_arrow_left</mat-icon></button> 
-	{{nbrPageCurrent}}/{{nbrTotPage}}
+	{{nbrPageCurrent}}/{{nbrTotPage | number: '1.0-0'}}
 	<button mat-icon-button (click)="goNextPage()"[hidden]="!hadNext()"><mat-icon>keyboard_arrow_right</mat-icon></button>
 </div>

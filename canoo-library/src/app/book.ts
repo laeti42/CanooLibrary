@@ -8,6 +8,6 @@ export class Book {
 		public date : number,
 		public summary : string,
 		public imageUrl : string,
-		public dateAdd : boolean
+		public dateAdd : number
 		){}
 }

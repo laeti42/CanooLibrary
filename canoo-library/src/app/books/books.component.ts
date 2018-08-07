@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Book } from '../book';
 
 export interface Categorie {
@@ -30,18 +30,18 @@ export class BooksComponent{
 		{title:'Angular 5 Projects: Learn to Build Single Page Web Applications Using 70+ Projects', editingMode:false, dateAdd:Date.now(), author:'Mark Clow', date: 1478496544151, summary:'', imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/41wwgX3DWrL._AC_US327_QL65_.jpg'}
 	];
 	categories: Categorie[] = [
-    {value: 'date-0', viewValue: 'Date'},
-    {value: 'name-1', viewValue: 'Name'},
-    {value: 'author-3', viewValue: 'Author'}
-  ];
+		{value: 'date-0', viewValue: 'Date'},
+		{value: 'name-1', viewValue: 'Name'},
+		{value: 'author-3', viewValue: 'Author'}
+	];
 	book: Book = {title:'', editingMode:false, dateAdd:Date.now(), author:'', date: 0, summary:'', imageUrl: ''};
 	books:Book[] = [];
 	isAdmin=false;
-	int nbrProPage=4;
-	int page = this.nbrProPage;
-	int nbrBooks=this.myBook.length;
-	int nbrTotPage=0;
-	int nbrPageCurrent=1;
+	nbrProPage=4;
+	page = this.nbrProPage;
+	nbrBooks=this.myBook.length;
+	nbrTotPage=0;
+	nbrPageCurrent=1;
 	isAddingAbook=false;
 	ErrorMessage="Please enter a value";
 	
@@ -60,7 +60,7 @@ export class BooksComponent{
 		if(this.nbrBooks%this.nbrProPage===0){
 			this.nbrTotPage=this.nbrBooks/this.nbrProPage;
 		}else{
-			this.nbrTotPage=parseInt(this.nbrBooks/this.nbrProPage)+1;
+			this.nbrTotPage=(this.nbrBooks/this.nbrProPage)+0.5;
 		}
 	}
 	isOk(i){
