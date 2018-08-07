@@ -7,6 +7,7 @@ export class Book {
 		public author : string,
 		public date : number,
 		public summary : string,
-		public imageUrl : string
+		public imageUrl : string,
+		public dateAdd : boolean
 		){}
 }

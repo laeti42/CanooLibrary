@@ -27,3 +27,29 @@
 .example-container > * {
   width: 100%;
 }
+
+
+
+
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.btn{
+	margin:10px;
+}
+.addBook{
+	
+	display: inline-block;
+}
+
+
+.selectSort{
+	margin:10px;
+}

@@ -11,18 +11,18 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule} from '@angular/material/icon';
-import { AddBookComponent } from './add-book/add-book.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-
+import {MatSelectModule} from '@angular/material/select';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    BooksComponent,
-    AddBookComponent
+    BooksComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +33,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 	MatGridListModule,
 	MatIconModule,
 	MatInputModule,
-	MatFormFieldModule
+	MatFormFieldModule,
+	MatSelectModule,
+	MatMenuModule,
+	MatToolbarModule
 	],
   providers: [],
   bootstrap: [AppComponent]

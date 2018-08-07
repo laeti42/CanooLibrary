@@ -1,6 +1,7 @@
-<div class="container" >
-	<a (click)="logout()" href="#">Logout</a>
-	<a (click)="addBook()" href="addBook">Add a new book</a>
-</div>
+<mat-toolbar >
+	<span>Canoo Librarie</span>
+	<span class="fill-remaining-space"></span>
+	<button mat-button (click)="logout()">Logout</button>
+</mat-toolbar>
 <br/>
 <app-books></app-books>
